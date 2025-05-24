@@ -10,11 +10,19 @@ Welcome to Nexus AI, a free AI agent that anyone can use. Nexus AI features a Ch
 
 ---
 
+## ❗ Nexus AI Introduction
+
+You can access the Introduction Presentation here:
+
+🔗 [Introduction to Nexus AI](https://drive.google.com/file/d/15VX4U0Ab3zrX80sNkZdLg6MwdMerfv7-/view?usp=sharing)
+
+---
+
 ## 🌐 Access the Live Demo
 
 You can access the Live Demo here:
 
-🔗 [url name](url.com)
+🔗 [Nexus AI](https://lp3jy-yqaaa-aaaai-q3xqa-cai.icp0.io/)
 
 ---
 
@@ -76,7 +84,7 @@ Deployment: Internet Computer Protocol (ICP) and local
 
 You can check the tutorial video here:
 
-🔗 [url name](url.com)
+🔗 [Nexus AI tutorial video](https://youtu.be/oazxrj4yOfY?si=KYUMx6zDDDjjBWLN)
 
 ---
 
@@ -84,7 +92,7 @@ You can check the tutorial video here:
 
 You can check the deployed version here:
 
-🔗 [url name](url.com)
+🔗 [Nexus AI live demo video](https://youtu.be/7EkBTHwwPp8?si=pLQkmJvnYSrcpj2y)
 
 ---
 
