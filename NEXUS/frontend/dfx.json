@@ -1,0 +1,19 @@
+{
+  "canisters": {
+    "frontend_assets": {
+      "type": "assets",
+      "source": ["src"]
+    }
+  },
+  "networks": {
+    "ic": {
+      "type": "persistent",
+      "providers": ["https://ic0.app"]
+    }
+  },
+  "defaults": {
+    "build": {
+      "packtool": ""
+    }
+  }
+}

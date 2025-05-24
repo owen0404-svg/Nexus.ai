@@ -1,0 +1,641 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartAI – The Future of Intelligence</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+      :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --orange: rgb(249, 115, 22);
+      --gray: #1f2937;
+      --gray-dark: #111827;
+      --text: #f9fafb;
+      --subtext: #9ca3af;
+      --button-large-size: 1.5rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-dark);
+      color: var(--text);
+      line-height: 1.6;
+      background: url('https://d.furaffinity.net/art/cyber-ogurchik/1631388545/1631388545.cyber-ogurchik_1123-1.gif') center center / cover no-repeat fixed;
+      background-color: var(--gray-dark);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      background: rgba(31, 41, 55, 0.5);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+    }
+
+    .navbar {
+      position: relative;
+      width: 100vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      color: white;
+      overflow: hidden;
+      position: relative; /* Ensure it's a stacking context */
+      overflow: visible;  /* Allow dropdowns to overflow */
+      z-index: 10;        /* So it stays above content but dropdowns can go above it */
+    }
+
+    .navbar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('pixelim.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+      color: white;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: yellow;
+    }
+    
+  .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #1f2937;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+  z-index: 9999; /* Ensure it appears above the navbar */
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  right: 0;
+  top: 2.5rem; /* Push down below the navbar */
+}
+
+.dropdown-menu a {
+  color: white;
+  padding: 0.6rem 1rem;
+  display: block;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background-color: #374151;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+
+    .btn {
+      background: orange;
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-launch-chat-new {
+      background: rgb(249, 115, 22);
+      color: white;
+      padding: 1.5rem 3rem;
+      font-size: var(--button-large-size);
+      border-radius: 12px;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s, box-shadow 0.3s;
+      cursor: pointer;
+      animation: rgbColorChange 10s infinite;
+       display: inline-block;
+  text-align: center;
+  width: 28%; /* set a suitable fixed width */
+    }
+
+    @keyframes rgbColorChange {
+      0% { background: rgb(249, 115, 22); }
+      25% { background: rgb(22, 249, 115); }
+      50% { background: rgb(22, 115, 249); }
+      75% { background: rgb(249, 22, 115); }
+      100% { background: rgb(249, 115, 22); }
+    }
+
+    .btn-launch-chat-new:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 30px rgba(255, 165, 0, 1.2);
+    }
+
+    .hero {
+      position: relative;
+      background:
+        
+        url('AIIMAGE.jpg') center center / cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 1.5rem 6rem;
+      overflow: hidden;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 120px;
+      
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .hero .container,
+    .hero .scroll-down {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      min-height: 3.5rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      color: #e0e7ff;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 10px); }
+    }
+
+    section {
+      padding: 4rem 1rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      color: var(--text);
+    }
+
+    .features, .testimonials, .pricing {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .features, .testimonials, .pricing {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: #2d3748;
+      color: var(--text);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.3);
+    }
+
+    .card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: var(--orange);
+    }
+
+    .card p {
+      color: var(--subtext);
+    }
+
+    .quote {
+      font-style: italic;
+    }
+
+    .pricing .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .pricing .card ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight {
+      border: 2px solid var(--primary);
+    }
+
+    footer {
+      background: #111827;
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--subtext);
+      font-size: 0.875rem;
+      border-top: 1px solid #374151;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .typewriter-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+    
+    .nexus-footer {
+  background-color: #111827;
+  color: #9ca3af;
+  padding: 3rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6rem;
+  margin-bottom: 2rem;
+}
+
+.footer-column h4 {
+  font-weight: 600;
+  color: #f9fafb;
+  margin-bottom: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #9ca3af;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: var(--orange);
+}
+
+.footer-column.social a {
+  display: inline-block;
+  color: #9ca3af;
+  margin-right: 1rem;
+  transition: color 0.3s;
+}
+
+.footer-column.social a:hover {
+  color: var(--orange);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #374151;
+  padding-top: 1rem;
+  font-size: 0.75rem;
+}
+    
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="navbar">
+      <h2 style="color: white; cursor: pointer;" onclick="scrollToTop()">Nexus AI</h2>
+      <nav class="nav-links">
+  <a onclick="scrollToSection('features')">Features</a>
+  <a onclick="scrollToSection('testimonials')">Testimonials</a>
+  <a onclick="scrollToSection('pricing')">Models</a>
+  <div class="dropdown">
+    <a class="dropdown-toggle">More ▾</a>
+    <div class="dropdown-menu">
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+      <span class="btn" onclick="startChat()">Launch Chatbot</span>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <h1><span id="typewriter" class="typewriter-text"></span></h1>
+    <p>Your intelligent assistant for making custom AI chatbot and character — one message at a time.</p>
+    <span class="btn" onclick="scrollToSection('features')">See What It Can Do</span>
+  </div>
+  <div class="scroll-down" onclick="scrollToSection('features')">⌄</div>
+</section>
+
+
+  <!-- New Launch Chat Button Below Hero Section -->
+  <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 3rem;">
+  <span class="btn-launch-chat-new" onclick="startChat()">Launch Chatbot Now</span>
+  <span class="btn-launch-chat-new" onclick="startNN()">Launch Neural Net</span>
+</div>
+
+
+  <!-- Features -->
+  <section id="features" class="fade-in">
+    <div class="container">
+      <h3 class="section-title">Powerful Features</h3>
+      <div class="features">
+        <div class="card">
+          <h4>Instant Answers</h4>
+          <p>Get accurate bot for anything you need! — instantly.</p>
+        </div>
+        <div class="card">
+          <h4>Make your own AI</h4>
+          <p>Generate bot, character and more — Nexus AI helps you make your own AI.</p>
+        </div>
+        <div class="card">
+          <h4>Always Improving</h4>
+          <p>You can train your bot, it learns your style and adapts with it — so your bots feel more personal every time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="fade-in">
+    <div class="container">
+      <h3 class="section-title">What testimonials Say</h3>
+      <div class="testimonials">
+        <div class="card">
+          <p class="quote">"I can make a goofy bot for myself to joke someone"</p>
+          <footer style="margin-top: 1rem; font-weight: bold;">— Matthew Orotodan, Testimonial 1</footer>
+        </div>
+        <div class="card">
+          <p class="quote">"This bot helps me learn more about neural networks"</p>
+          <footer style="margin-top: 1rem; font-weight: bold;">— Nelson Matthew Sunaryo, Testimonial 2</footer>
+        </div>
+        <div class="card">
+          <p class="quote">"A new and easier way to for me to start making my own AI"</p>
+          <footer style="margin-top: 1rem; font-weight: bold;">— Darren Gudfried, Testimonial 3</footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="fade-in">
+    <div class="container">
+      <h3 class="section-title">Powered By 3 Libraries</h3>
+      <div class="pricing">
+        <div class="card">
+          <h4>Neural Network</h4>
+          <p><strong>Pytorch</strong></p>
+          <ul>
+            <li>✅ Easy to use</li>
+            <li>✅ Very fast and efficient</li>
+            <li>✅ flexible</li>
+          </ul>
+          <span class="btn"><a href="/contact">Contact Sales</a></span>
+        </div>
+        <div class="card highlight">
+          <h4>Language Processing</h4>
+          <p><strong>SKlearn</strong></p>
+          <ul>
+            <li>✅ Fast</li>
+            <li>✅ Great for simple datasets</li>
+            <li>✅ Accurate</li>
+          </ul>
+          <span class="btn"><a href="/contact">Contact Sales</a></span>
+        </div>
+        <div class="card">
+          <h4>LLMs</h4>
+          <p><strong>Mistral Ollama</strong></p>
+          <ul>
+            <li>✅ No hallucination</li>
+            <li>✅ Super fast</li>
+            <li>✅ Runs locally</li>
+          </ul>
+          <span class="btn"><a href="/contact">Contact Sales</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Youtube Guide Video-->
+  <section id="guide" class="fade-in">
+    <div class="container">
+      <h3 class="section-title">User Guidance</h3>
+    
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+        <iframe 
+          src="https://www.youtube.com/embed/oazxrj4yOfY" 
+          frameborder="0" 
+          allowfullscreen 
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+      </div>
+    
+    </div>
+  </section>
+
+  <!-- Footer -->
+<footer class="nexus-footer">
+  <div class="footer-container">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Nexus AI</h4>
+        <ul>
+          <li><a href="/chatbot">Chatbot</a></li>
+          <li><a href="/">Neural Network</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Developers</h4>
+        <ul>
+          <li><a href="/contact">Owen</a></li>
+          <li><a href="/contact">Dave</a></li>
+          <li><a href="/contact">Leo</a></li>
+          <li><a href="/contact">JoMax</a></li>
+        </ul>
+      </div>
+      <div class="footer-column social">
+        <h4>Follow Us</h4>
+        <a href="https://www.instagram.com/nexusai.id" target="_blank" aria-label="Instagram">
+          <svg fill="currentColor" width="24" height="24" viewBox="0 0 448 512">
+            <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.09-30.09C296.79,122.07,224,120,224,120s-72.79,2.07-94.62,11.58a54,54,0,0,0-30.09,30.09C88.07,143.21,86,216,86,216s2.07,72.79,11.58,94.62a54,54,0,0,0,30.09,30.09C151.21,329.93,224,332,224,332s72.79-2.07,94.62-11.58a54,54,0,0,0,30.09-30.09C359.93,288.79,362,216,362,216S359.93,143.21,348.71,161.71ZM224,306a82,82,0,1,1,82-82A82,82,0,0,1,224,306Zm85.33-148.1a19.2,19.2,0,1,1,19.2-19.2A19.21,19.21,0,0,1,309.33,157.9ZM398.8,80a48,48,0,0,0-48-48H97.2a48,48,0,0,0-48,48V432a48,48,0,0,0,48,48H350.8a48,48,0,0,0,48-48ZM362,216c0,76.92-5.7,108.28-17.08,134.8a94.69,94.69,0,0,1-52.28,52.28C266.28,414.3,234.92,420,158,420s-108.28-5.7-134.8-17.08a94.69,94.69,0,0,1-52.28-52.28C5.7,324.28,0,292.92,0,216S5.7,107.72,17.08,81.2A94.69,94.69,0,0,1,69.36,28.92C95.88,17.54,127.24,12,204,12s108.28,5.7,134.8,17.08a94.69,94.69,0,0,1,52.28,52.28C414.3,107.72,420,139.08,420,216S414.3,324.28,398.8,351.2Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>©2025 Nexus AI. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+  <!-- JavaScript -->
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToSection(id) {
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function startChat() {
+      window.location.href = "/chatbot";
+    }
+    function startNN() {
+      window.location.href = "/";
+    }
+
+    // Scroll-triggered fade-in
+    const fadeIns = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    fadeIns.forEach(fadeIn => observer.observe(fadeIn));
+
+    // Typing effect
+    const text = "Welcome to Nexus AI!";
+    const typewriter = document.getElementById('typewriter');
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        typewriter.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, 150);
+      }
+    }
+
+    type(); // Start typing animation
+    
+    // Dropdown toggle logic
+document.querySelector('.dropdown-toggle').addEventListener('click', function () {
+  document.querySelector('.dropdown-menu').classList.toggle('show');
+});
+
+// Optional: Close dropdown if clicking outside
+window.addEventListener('click', function (e) {
+  const dropdown = document.querySelector('.dropdown');
+  if (!dropdown.contains(e.target)) {
+    document.querySelector('.dropdown-menu').classList.remove('show');
+  }
+});
+
+
+  </script>
+</body>
+</html>

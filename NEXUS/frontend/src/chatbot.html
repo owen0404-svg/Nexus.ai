@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+       body {
+    font-family: 'Inter', sans-serif;
+    background: rgb(244, 242, 255); /* Initial purple */
+    animation: backgroundChange 5s infinite alternate; /* Animation */
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --orange: rgb(249, 115, 22);
+      --gray: #1f2937;
+      --gray-dark: #111827;
+      --text: #f9fafb;
+      --subtext: #9ca3af;
+      --button-large-size: 1.5rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-dark);
+      color: var(--text);
+      line-height: 1.6;
+      background: url('https://i.pinimg.com/originals/ee/e0/c1/eee0c1dc806da44930fc6eb26b94a737.gif') center center / cover no-repeat fixed;
+      background-color: var(--gray-dark);
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      background: rgba(31, 41, 55, 0.5);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+    }
+
+    .navbar {
+      position: relative;
+      width: 100vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      color: white;
+      overflow: hidden;
+      position: relative; /* Ensure it's a stacking context */
+      overflow: visible;  /* Allow dropdowns to overflow */
+      z-index: 10;        /* So it stays above content but dropdowns can go above it */
+    }
+
+    .navbar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('pixelim.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    .nav-links a {
+      margin-left: 1.5rem;
+      font-weight: 500;
+      color: white;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: yellow;
+    }
+    
+    .btn {
+      background: orange;
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-launch-chat-new {
+      background: rgb(249, 115, 22);
+      color: white;
+      padding: 1.5rem 3rem;
+      font-size: var(--button-large-size);
+      border-radius: 12px;
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s, box-shadow 0.3s;
+      cursor: pointer;
+      animation: rgbColorChange 10s infinite;
+    }
+    
+
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin: 50px auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #5b2eff;
+            
+            
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background: #5b2eff;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 14px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: #4a23d1;
+        }
+
+        .chat-box {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 30px;
+            padding: 15px;
+            background: #f9f9ff;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 18px;
+            border-radius: 14px;
+            max-width: 80%;
+            word-wrap: break-word;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .user {
+            background-color: #e0dcff;
+            color: #333;
+            align-self: flex-end;
+            text-align: right;
+            margin-left: auto;
+        }
+
+        .assistant {
+            background-color: #eaf2ff;
+            color: #333;
+            align-self: flex-start;
+            text-align: left;
+            margin-right: auto;
+        }
+
+        .chat-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+ footer {
+      background: #111827;
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--subtext);
+      font-size: 0.875rem;
+      border-top: 1px solid #374151;
+    }
+    
+    .nexus-footer {
+  background-color: #111827;
+  color: #9ca3af;
+  padding: 3rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6rem;
+  margin-bottom: 2rem;
+}
+
+.footer-column h4 {
+  font-weight: 600;
+  color: #f9fafb;
+  margin-bottom: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-column ul li a {
+  color: #9ca3af;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: var(--orange);
+}
+
+.footer-column.social a {
+  display: inline-block;
+  color: #9ca3af;
+  margin-right: 1rem;
+  transition: color 0.3s;
+}
+
+.footer-column.social a:hover {
+  color: var(--orange);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #374151;
+  padding-top: 1rem;
+  font-size: 0.75rem;
+}
+    
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+     <header>
+    <div class="navbar">
+      <h2 style="color: white; cursor: pointer;" onclick="scrollToTop()">Nexus AI</h2>
+      <nav class="nav-links">
+ 
+</nav>
+
+      <span class="btn" onclick="starthome()">Home</span>
+    </div>
+  </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Title -->
+        <h2>Talk to the AI Agent</h2>
+
+        <!-- Form -->
+        <form method="post">
+            <label for="user_input">Your Message:</label>
+            <input type="text" name="user_input" value="" placeholder="Say something..." required>
+
+            <label for="personality">Personality:</label>
+            <input type="text" name="personality" value="{{ personality }}" placeholder="e.g., You are a sarcastic AI">
+
+            <button type="submit">Send</button>
+        </form>
+
+        <!-- Chat History -->
+        <div class="chat-box">
+            <div class="chat-wrapper">
+                {% for msg in chat_history %}
+                    <div class="message {{ msg.role }}">
+                        <strong>{{ msg.role.capitalize() }}:</strong> {{ msg.content }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+<footer class="nexus-footer">
+  <div class="footer-container">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h4>Nexus AI</h4>
+        <ul>
+          <li><a href="/chatbot">Chatbot</a></li>
+          <li><a href="/">Neural Network</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Developers</h4>
+        <ul>
+          <li><a href="/contact">Owen</a></li>
+          <li><a href="/contact">Dave</a></li>
+          <li><a href="/contact">Leo</a></li>
+          <li><a href="/contact">JoMax</a></li>
+        </ul>
+      </div>
+      <div class="footer-column social">
+        <h4>Follow Us</h4>
+        <a href="https://www.instagram.com/nexusai.id" target="_blank" aria-label="Instagram">
+          <svg fill="currentColor" width="24" height="24" viewBox="0 0 448 512">
+            <path d="M224,202.66A53.34,53.34,0,1,0,277.34,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.09-30.09C296.79,122.07,224,120,224,120s-72.79,2.07-94.62,11.58a54,54,0,0,0-30.09,30.09C88.07,143.21,86,216,86,216s2.07,72.79,11.58,94.62a54,54,0,0,0,30.09,30.09C151.21,329.93,224,332,224,332s72.79-2.07,94.62-11.58a54,54,0,0,0,30.09-30.09C359.93,288.79,362,216,362,216S359.93,143.21,348.71,161.71ZM224,306a82,82,0,1,1,82-82A82,82,0,0,1,224,306Zm85.33-148.1a19.2,19.2,0,1,1,19.2-19.2A19.21,19.21,0,0,1,309.33,157.9ZM398.8,80a48,48,0,0,0-48-48H97.2a48,48,0,0,0-48,48V432a48,48,0,0,0,48,48H350.8a48,48,0,0,0,48-48ZM362,216c0,76.92-5.7,108.28-17.08,134.8a94.69,94.69,0,0,1-52.28,52.28C266.28,414.3,234.92,420,158,420s-108.28-5.7-134.8-17.08a94.69,94.69,0,0,1-52.28-52.28C5.7,324.28,0,292.92,0,216S5.7,107.72,17.08,81.2A94.69,94.69,0,0,1,69.36,28.92C95.88,17.54,127.24,12,204,12s108.28,5.7,134.8,17.08a94.69,94.69,0,0,1,52.28,52.28C414.3,107.72,420,139.08,420,216S414.3,324.28,398.8,351.2Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>©2025 Nexus AI. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+ <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToSection(id) {
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function starthome() {
+      window.location.href = "/Upgrade";
+    }
+
+    // Scroll-triggered fade-in
+    const fadeIns = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    fadeIns.forEach(fadeIn => observer.observe(fadeIn));
+
+    // Typing effect
+    const text = "Welcome to SmartAI!";
+    const typewriter = document.getElementById('typewriter');
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        typewriter.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, 150);
+      }
+    }
+
+    type(); // Start typing animation
+    
+    // Dropdown toggle logic
+document.querySelector('.dropdown-toggle').addEventListener('click', function () {
+  document.querySelector('.dropdown-menu').classList.toggle('show');
+});
+
+// Optional: Close dropdown if clicking outside
+window.addEventListener('click', function (e) {
+  const dropdown = document.querySelector('.dropdown');
+  if (!dropdown.contains(e.target)) {
+    document.querySelector('.dropdown-menu').classList.remove('show');
+  }
+});
+
+
+  </script>
+  
+</body>
+</html>
