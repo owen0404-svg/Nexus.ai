@@ -7,7 +7,7 @@ Your intelligent assistant for making custom AI chatbot and character — one me
 
 ## 📱 Overview
 
-Welcome to Nexus AI, a free AI agent that anyone can use. Nexus AI features a ChatBot which is quick and responsive and also a easy to use Neural Network builder. This project showcases how intelligent our AI agent can interact with users through Nexus AI.
+Welcome to Nexus AI, a free AI creator that anyone can use. Nexus AI features a ChatBot creator which is quick and responsive and also a easy to use Neural Network builder. This project showcases how our intelligent AI agent builder can be used by users to easily create custom chatbots and neural networks.
 
 ![](Chatbot.png)
 ![](NeuralNet.png)
