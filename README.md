@@ -1,5 +1,6 @@
 # 🧠 Nexus AI
 
+![](Homepage.png)
 Your intelligent assistant for making custom AI chatbot and character — one message at a time. Nexus AI 
 
 ---
@@ -7,6 +8,9 @@ Your intelligent assistant for making custom AI chatbot and character — one me
 ## 📱 Overview
 
 Welcome to Nexus AI, a free AI agent that anyone can use. Nexus AI features a ChatBot which is quick and responsive and also a easy to use Neural Network builder. This project showcases how intelligent our AI agent can interact with users through Nexus AI.
+
+![](Chatbot.png)
+![](NeuralNet.png)
 
 ---
 
@@ -105,6 +109,8 @@ You can check the deployed version here:
 - Leo — Website Developer
 
 - JoMax — Backend Developer
+
+![](Contact.png)
 
 ---
 
